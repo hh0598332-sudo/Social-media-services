@@ -1,74 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Social Media Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
       margin: 0;
       padding: 15px;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #ffffff;
     }
+
     h1 {
       text-align: center;
       color: #38bdf8;
+      margin-bottom: 20px;
     }
+
     .card {
       background: #020617;
-      border-radius: 12px;
+      border-radius: 15px;
       padding: 15px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
+
     .card h2 {
-      margin: 0 0 10px;
+      margin-top: 0;
       color: #22c55e;
+      text-align: center;
     }
+
     .btn {
       display: block;
       text-align: center;
       background: #2563eb;
-      color: white;
+      color: #fff;
       padding: 12px;
-      margin-top: 8px;
-      border-radius: 8px;
+      margin: 10px 0;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
     }
+
     .btn:hover {
       background: #1d4ed8;
     }
+
+    .qr {
+      display: block;
+      margin: 15px auto;
+      width: 220px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 30px;
+    }
   </style>
 </head>
+
 <body>
 
 <h1>🔥 Social Media Services 🔥</h1>
 
 <div class="card">
   <h2>Instagram</h2>
-  <a class="btn" href="https://your-link-here">Followers</a>
-  <a class="btn" href="https://your-link-here">Likes</a>
+  <a class="btn" href="#">Followers</a>
+  <a class="btn" href="#">Likes</a>
 </div>
 
 <div class="card">
   <h2>YouTube</h2>
-  <a class="btn" href="https://your-link-here">Subscribers</a>
-  <a class="btn" href="https://your-link-here">Views</a>
+  <a class="btn" href="#">Subscribers</a>
+  <a class="btn" href="#">Views</a>
 </div>
 
 <div class="card">
   <h2>Facebook</h2>
-  <a class="btn" href="https://your-link-here">Page Likes</a>
+  <a class="btn" href="#">Page Likes</a>
 </div>
 
 <div class="card">
   <h2>Payment</h2>
-  <a class="btn" href="upi://pay?pa=hh0598332-2@okhdfcbank">Pay via UPI</a>
-  <a class="btn" href="https://wa.me/917061496326">WhatsApp</a>
+
+  <!-- QR CODE -->
+  <img
+    class="qr"
+    src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=hh0598332-2@okhdfcbank"
+    alt="UPI QR Code">
+
+  <a class="btn" href="upi://pay?pa=hh0598332-2@okhdfcbank">
+    Pay via UPI
+  </a>
+
+  <a class="btn" href="https://wa.me/917061496326">
+    WhatsApp Support
+  </a>
 </div>
+
+<footer>
+  © 2025 Social Media Services
+</footer>
 
 </body>
 </html>
