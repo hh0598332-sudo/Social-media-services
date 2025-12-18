@@ -6,87 +6,123 @@
 <title>Genuine Followers</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:#fff}
-.hide{display:none}
-
-/* Header */
-.header{
-  background:#1e293b;
-  padding:15px;
-  text-align:center;
-  font-size:20px;
-  font-weight:bold;
-}
-
-/* Custom text */
-.custom{
-  text-align:center;
-  padding:15px;
-  line-height:1.6;
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:#020617;
   color:#e5e7eb;
 }
 
-/* Layout */
-.container{padding:15px}
-.card{
-  background:#1e293b;
-  border-radius:12px;
-  padding:15px;
-  margin-bottom:15px
+/* Header */
+.header{
+  background:linear-gradient(135deg,#0f172a,#020617);
+  padding:18px;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#facc15;
+  border-bottom:1px solid #1e293b;
 }
-.title{font-size:16px;font-weight:bold}
-.price{margin-top:6px;color:#22c55e}
+
+/* Luxury intro text */
+.custom{
+  text-align:center;
+  padding:18px;
+  line-height:1.7;
+  color:#cbd5f5;
+  font-size:15px;
+  animation:fadeIn 1s ease;
+}
+
+/* Layout */
+.container{padding:16px}
+
+/* Card */
+.card{
+  background:linear-gradient(180deg,#020617,#0f172a);
+  border:1px solid #1e293b;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+  animation:fadeInUp .8s ease;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 45px rgba(250,204,21,.15);
+}
+.title{font-size:16px;font-weight:600;color:#f8fafc}
+.price{margin-top:6px;color:#facc15;font-size:15px}
+
+/* Glow Button */
 .btn{
-  margin-top:10px;
+  margin-top:14px;
   width:100%;
-  padding:10px;
+  padding:12px;
   border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:#fff;
-  font-size:16px
+  border-radius:10px;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  color:#020617;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 0 0 rgba(250,204,21,.0);
+  animation:pulse 2.5s infinite;
+}
+.btn:hover{
+  box-shadow:0 0 22px rgba(250,204,21,.55);
 }
 
 /* QR */
 .qr{
   display:none;
   background:#020617;
-  padding:20px;
-  border-radius:12px;
-  margin-top:15px;
-  text-align:center
+  border:1px solid #1e293b;
+  padding:22px;
+  border-radius:16px;
+  margin-top:20px;
+  text-align:center;
+  animation:fadeInUp .6s ease;
 }
 .qr img{width:220px}
-.upi{margin-top:10px;color:#38bdf8;word-break:break-all}
-.wa{background:#16a34a;margin-top:10px}
+.upi{margin-top:12px;color:#facc15;word-break:break-all}
+.wa{
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  color:#022c22;
+  margin-top:14px;
+}
 
 /* Language popup */
 .overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999
+  position:fixed; inset:0;
+  background:rgba(2,6,23,.85);
+  display:flex; align-items:center; justify-content:center;
+  z-index:9999;
 }
 .modal{
-  background:#fff;
-  color:#000;
-  width:90%;
-  max-width:360px;
-  padding:20px;
-  border-radius:12px;
-  text-align:center
+  background:#020617;
+  border:1px solid #1e293b;
+  width:90%; max-width:360px;
+  padding:22px; border-radius:16px;
+  text-align:center; animation:fadeIn .6s ease;
 }
+.modal h3{color:#facc15}
 .lang{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:#fff
+  width:100%; padding:12px; margin-top:12px;
+  border:none; border-radius:10px;
+  background:linear-gradient(135deg,#facc15,#eab308);
+  color:#020617; font-weight:700;
+}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(250,204,21,.0)}
+  50%{box-shadow:0 0 18px rgba(250,204,21,.35)}
+  100%{box-shadow:0 0 0 rgba(250,204,21,.0)}
 }
 </style>
 </head>
@@ -106,48 +142,43 @@ body{margin:0;font-family:Arial;background:#0f172a;color:#fff}
 <!-- Header -->
 <div class="header">💎 Genuine Followers</div>
 
-<!-- Custom Text (Option 1) -->
+<!-- Luxury Text -->
 <div class="custom">
   💎 Genuine Followers Hub<br>
   🚀 Real & Active Social Media Growth<br>
   🎯 YouTube • Instagram • Facebook • TikTok<br>
-  💰 Best Price | ⚡ Fast Delivery<br>
-  📲 Pay via UPI & Get Started
+  💰 Best Price • ⚡ Fast Delivery<br>
+  📲 Premium UPI Payment
 </div>
 
 <div class="container">
 
-  <!-- YouTube -->
   <div class="card">
     <div class="title">▶️ YouTube Subscribers</div>
-    <div class="price">💰 1K Subscribers – ₹250</div>
+    <div class="price">1K Subscribers — ₹250</div>
     <button class="btn" onclick="openQR()">Pay Now</button>
   </div>
 
-  <!-- Instagram -->
   <div class="card">
     <div class="title">📸 Instagram Followers</div>
-    <div class="price">💰 500 Followers – ₹100</div>
+    <div class="price">500 Followers — ₹100</div>
     <button class="btn" onclick="openQR()">Pay Now</button>
   </div>
 
-  <!-- Facebook -->
   <div class="card">
     <div class="title">📘 Facebook Page Likes</div>
-    <div class="price">💰 1K Likes – ₹150</div>
+    <div class="price">1K Likes — ₹150</div>
     <button class="btn" onclick="openQR()">Pay Now</button>
   </div>
 
-  <!-- TikTok -->
   <div class="card">
     <div class="title">🎵 TikTok Followers</div>
-    <div class="price">💰 1K Followers – ₹120</div>
+    <div class="price">1K Followers — ₹120</div>
     <button class="btn" onclick="openQR()">Pay Now</button>
   </div>
 
-  <!-- QR -->
   <div class="qr" id="qr">
-    <h3>📷 Scan & Pay</h3>
+    <h3 style="color:#facc15">📷 Scan & Pay</h3>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=hh0598332-2@okhdfcbank&pn=GenuineFollowers">
     <div class="upi">UPI ID: hh0598332-2@okhdfcbank</div>
     <button class="btn wa" onclick="wa()">WhatsApp After Payment</button>
@@ -156,9 +187,7 @@ body{margin:0;font-family:Arial;background:#0f172a;color:#fff}
 </div>
 
 <script>
-function closeLang(){
-  document.getElementById("lang").style.display="none";
-}
+function closeLang(){ document.getElementById("lang").style.display="none"; }
 function openQR(){
   document.getElementById("qr").style.display="block";
   window.scrollTo(0,document.body.scrollHeight);
