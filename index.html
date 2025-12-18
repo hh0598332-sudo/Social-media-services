@@ -1,130 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Social Media Services</title>
+<title>Place Order</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
 body{
-  margin:0; font-family:system-ui,Arial,sans-serif;
-  background:#020617; color:#e5e7eb; padding:14px;
+  margin:0;padding:15px;
+  background:#020617;color:#fff;
+  font-family:Arial,sans-serif
 }
-.header{
-  background:linear-gradient(135deg,#2563eb,#22c55e);
-  border-radius:16px; padding:18px; text-align:center;
-}
-.header h1{margin:0; font-size:22px; color:#fff}
-.header p{margin:6px 0 0; color:#e0f2fe; font-size:14px}
-
-.section{margin-top:16px}
 .card{
-  background:#020617; border:1px solid #0f172a;
-  border-radius:16px; padding:14px; margin-bottom:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,.35)
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:16px;
+  padding:16px
 }
-.card h2{
-  margin:0 0 10px; text-align:center; color:#38bdf8
-}
-
-.grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:10px
+h1{text-align:center;color:#38bdf8}
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin-top:12px
 }
 .btn{
-  display:flex; align-items:center; justify-content:center;
-  gap:8px; padding:12px; border-radius:12px;
-  text-decoration:none; font-weight:700; color:#fff;
-  background:#0f172a; border:1px solid #1e293b
+  width:100%;
+  padding:14px;
+  margin-top:14px;
+  border:none;
+  border-radius:12px;
+  background:#16a34a;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold
 }
-.btn.primary{background:#2563eb}
-.btn.green{background:#16a34a}
-.btn.dark{background:#020617}
-.btn small{font-weight:500; opacity:.9}
-
 .qr{
-  width:220px; background:#fff; padding:10px;
-  border-radius:14px; display:block; margin:10px auto
+  display:none;
+  width:220px;
+  background:#fff;
+  padding:10px;
+  border-radius:14px;
+  margin:15px auto
 }
-
-.badge{
-  display:inline-block; padding:6px 10px; border-radius:999px;
-  background:#020617; border:1px solid #1e293b; font-size:12px
+.note{
+  display:none;
+  text-align:center;
+  font-size:13px;
+  color:#94a3b8
 }
-
-.footer{
-  text-align:center; color:#94a3b8; font-size:12px; margin:22px 0 8px
+.preview{
+  display:none;
+  margin-top:10px;
+  text-align:center
+}
+.preview img{
+  max-width:100%;
+  border-radius:12px;
+  margin-top:8px
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>⚡ Social Media Services</h1>
-  <p>Fast • Affordable • Promotional Services</p>
+<div class="card">
+<h1>📝 Place Order</h1>
+
+<p><b>Service:</b> <span id="service"></span></p>
+<p><b>Price:</b> ₹<span id="price"></span></p>
+
+<input id="link" placeholder="Paste Instagram / YouTube URL">
+
+<button class="btn" onclick="showQR()">Proceed to Pay</button>
+
+<img id="qr" class="qr"
+src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=hh0598332-2@okhdfcbank">
+
+<p class="note" id="note">
+Scan QR & complete payment
+</p>
+
+<!-- Screenshot Upload -->
+<div class="preview" id="previewBox">
+  <label><b>Upload Payment Screenshot</b></label>
+  <input type="file" accept="image/*" onchange="previewImage(event)">
+  <p style="font-size:12px;color:#94a3b8">
+    Screenshot sirf verification ke liye hai
+  </p>
+  <img id="previewImg">
 </div>
 
-<div class="section card">
-  <h2>Instagram</h2>
-  <div class="grid">
-    <a class="btn primary" href="https://wa.me/917061496326?text=Instagram%20Followers%20Order">
-      Followers <small>₹99 / 1K</small>
-    </a>
-    <a class="btn primary" href="https://wa.me/917061496326?text=Instagram%20Likes%20Order">
-      Likes <small>₹49 / 1K</small>
-    </a>
-  </div>
 </div>
 
-<div class="section card">
-  <h2>YouTube</h2>
-  <div class="grid">
-    <a class="btn green" href="https://wa.me/917061496326?text=YouTube%20Subscribers%20Order">
-      Subscribers <small>₹199 / 1K</small>
-    </a>
-    <a class="btn green" href="https://wa.me/917061496326?text=YouTube%20Views%20Order">
-      Views <small>₹29 / 1K</small>
-    </a>
-  </div>
-</div>
+<script>
+const p=new URLSearchParams(window.location.search);
+document.getElementById("service").innerText=p.get("service");
+document.getElementById("price").innerText=p.get("price");
 
-<div class="section card">
-  <h2>Facebook</h2>
-  <div class="grid">
-    <a class="btn dark" href="https://wa.me/917061496326?text=Facebook%20Page%20Likes%20Order">
-      Page Likes <small>₹99 / 1K</small>
-    </a>
-    <span class="btn dark">
-      Fast Delivery <small>1–24h</small>
-    </span>
-  </div>
-</div>
+function showQR(){
+  const link=document.getElementById("link").value;
+  if(link.length<10){
+    alert("Please enter valid URL");
+    return;
+  }
+  document.getElementById("qr").style.display="block";
+  document.getElementById("note").style.display="block";
+  document.getElementById("previewBox").style.display="block";
+}
 
-<div class="section card">
-  <h2>Payment</h2>
-
-  <!-- AUTO QR (NO UPLOAD NEEDED) -->
-  <img class="qr"
-    src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=hh0598332-2@okhdfcbank"
-    alt="UPI QR">
-
-  <a class="btn primary" href="upi://pay?pa=hh0598332-2@okhdfcbank">
-    Pay via UPI
-  </a>
-  <a class="btn green" href="https://wa.me/917061496326">
-    WhatsApp Support
-  </a>
-
-  <div style="text-align:center;margin-top:10px">
-    <span class="badge">No Password Required</span>
-    <span class="badge">Promotional</span>
-  </div>
-</div>
-
-<div class="footer">
-  © 2025 Social Media Services
-</div>
+function previewImage(e){
+  const img=document.getElementById("previewImg");
+  img.src=URL.createObjectURL(e.target.files[0]);
+  img.style.display="block";
+}
+</script>
 
 </body>
 </html>
