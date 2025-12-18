@@ -1,56 +1,89 @@
-
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Media Services</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
+body{
+margin:0;
+font-family:Arial, sans-serif;
 background:#0f172a;
 color:white;
-font-family:Arial;
 text-align:center;
 }
-.box {
-background:#1e293b;
+header{
+background:#020617;
+padding:15px;
+font-size:20px;
+font-weight:bold;
+}
+.card{
+background:#020617;
 margin:15px;
 padding:15px;
+border-radius:12px;
+box-shadow:0 0 10px rgba(0,0,0,0.6);
+}
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#2563eb;
+border:none;
+color:white;
+font-size:16px;
+border-radius:8px;
+}
+button:hover{
+background:#1d4ed8;
+}
+img{
+margin-top:10px;
 border-radius:10px;
 }
-input,select,button {
+footer{
+font-size:12px;
+color:#94a3b8;
 padding:10px;
-width:90%;
-margin:5px;
-border-radius:5px;
-border:none;
-}
-button {
-background:#22c55e;
-font-size:16px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>🔥 Social Media Services 🔥</h2>
+<header>🔥 Social Media Services 🔥</header>
 
-<div class="box">
-<h3>📦 Place Order</h3>
-
-<select>
-<option>Select Service</option>
-<option>YouTube Subscribers</option>
-<option>Instagram Followers</option>
-<option>Instagram Likes</option>
-<option>Facebook Likes</option>
-</select>
-
-<input placeholder="Profile / Video Link">
-<input placeholder="Quantity">
-
-<button>Submit</button>
+<div class="card">
+<h3>Instagram Followers</h3>
+<p>Fast & Safe Service</p>
+<button onclick="showQR()">Pay with Google Pay</button>
+<img src="gpay.png" id="qr" width="200" style="display:none;">
 </div>
+
+<div class="card">
+<h3>Facebook Likes</h3>
+<p>Real Engagement</p>
+<button onclick="showQR()">Pay with Google Pay</button>
+</div>
+
+<div class="card">
+<h3>YouTube Subscribers</h3>
+<p>Grow Your Channel</p>
+<button onclick="showQR()">Pay with Google Pay</button>
+</div>
+
+<footer>
+© 2025 Social Media Services<br>
+All services are promotional
+</footer>
+
+<script>
+function showQR(){
+document.getElementById("qr").style.display="block";
+}
+</script>
 
 </body>
 </html>
