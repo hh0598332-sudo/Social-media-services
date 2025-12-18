@@ -10,32 +10,23 @@ body{margin:0;font-family:Poppins,Arial,sans-serif;background:#0b0b14;color:#fff
 header{padding:22px 14px;text-align:center;background:linear-gradient(135deg,#7f00ff,#e100ff)}
 header h1{margin:0;font-size:26px}
 header p{margin:6px 0 0;font-size:14px;opacity:.9}
-.luxury{padding:8px;text-align:center;font-size:13px;
-background:linear-gradient(90deg,#ffd700,#ffb347);
--webkit-background-clip:text;color:transparent}
+.luxury{padding:8px;text-align:center;font-size:13px;background:linear-gradient(90deg,#ffd700,#ffb347);-webkit-background-clip:text;color:transparent}
 #counter{background:#111122;text-align:center;padding:8px;font-size:14px}
 .section{padding:14px}
 .box{background:#161627;border-radius:16px;padding:16px}
 h4{margin:10px 0 6px;font-size:14px}
 select,input{width:100%;padding:11px;border:none;border-radius:10px;margin-bottom:8px;font-size:14px}
-input[readonly]{opacity:.85}
+input[readonly]{opacity:.9}
+.note{font-size:12px;opacity:.7}
 .upi{margin-top:8px;padding:10px;border-radius:10px;background:#0d0d1a;text-align:center;font-size:14px}
 .qr{text-align:center;margin-top:10px}
 .qr img{width:170px;background:#fff;border-radius:12px;padding:8px}
 .check{display:flex;align-items:center;gap:8px;font-size:13px;margin:6px 0}
-button{width:100%;padding:13px;border:none;border-radius:12px;
-background:linear-gradient(135deg,#ff512f,#dd2476);
-color:#fff;font-size:16px;cursor:pointer;opacity:.4}
+button{width:100%;padding:13px;border:none;border-radius:12px;background:linear-gradient(135deg,#ff512f,#dd2476);color:#fff;font-size:16px;cursor:pointer;opacity:.4}
 button.active{opacity:1}
-.note{font-size:12px;opacity:.7;margin-top:4px}
 footer{text-align:center;font-size:12px;opacity:.6;padding:10px}
-
-/* Success Popup */
-#successPopup{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:9999}
-#successPopup div{
-background:#161627;padding:25px;border-radius:16px;text-align:center}
+#successPopup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:9999}
+#successPopup div{background:#161627;padding:25px;border-radius:16px;text-align:center}
 </style>
 </head>
 
@@ -47,14 +38,13 @@ background:#161627;padding:25px;border-radius:16px;text-align:center}
 </header>
 
 <div class="luxury">⚡ Fast Delivery • Secure Payments • Live Orders • Trusted ⚡</div>
-
-<div id="counter">🔥 Today Orders: <b id="orderCount">128</b></div>
+<div id="counter">🔥 Today Orders: <b id="orderCount">500</b></div>
 
 <div class="section">
 <div class="box">
 
 <h4>Select Service</h4>
-<select id="service" onchange="calcPrice()">
+<select id="service" onchange="calcFromAmount()">
 <option value="">Select Service</option>
 <option value="insta_views">Instagram Views</option>
 <option value="insta_likes">Instagram Likes</option>
@@ -69,22 +59,27 @@ background:#161627;padding:25px;border-radius:16px;text-align:center}
 <option value="tg_views">Telegram Views</option>
 </select>
 
-<h4>Enter Quantity (Custom)</h4>
-<input id="qty" type="number" step="1000" placeholder="Enter quantity" oninput="calcPrice()">
-<div class="note">Minimum varies by service • Platform fee included</div>
+<h4>Enter Amount (₹)</h4>
+<input id="amount" type="number" placeholder="Minimum varies by service" oninput="calcFromAmount()">
+<p class="note">Quantity auto-calculated • ₹18 platform fee included</p>
+
+<h4>Estimated Quantity</h4>
+<input id="qty" readonly placeholder="Auto calculated">
 
 <h4>Profile / Video URL</h4>
 <input id="url" placeholder="https://">
 
-<h4>Total Price</h4>
-<input id="price" readonly placeholder="₹0">
+<h4>Base Amount</h4>
+<input id="base" readonly placeholder="₹0">
+
+<h4>Grand Total</h4>
+<input id="grandTotal" readonly placeholder="₹0">
 
 <h4>UTR Number</h4>
 <input id="utr" placeholder="UTR Number">
 
 <div class="upi"><b>UPI ID</b><br>hh0598332-2@okhdfcbank</div>
-
-<div class="qr"><img id="qr" alt="UPI QR"></div>
+<div class="qr"><img id="qr"></div>
 
 <div class="check">
 <input type="checkbox" id="paid" onchange="submitBtn.classList.toggle('active',this.checked)">
@@ -106,81 +101,69 @@ background:#161627;padding:25px;border-radius:16px;text-align:center}
 </div>
 
 <script>
-/* Fake Live Counter */
-let count=128;
+// Live counter 500+
+let count=500;
 setInterval(()=>{count+=Math.floor(Math.random()*3);orderCount.innerText=count;},4000);
 
-/* Base Rates (₹ per 1000) */
+// Rates per 1000
 const rate={
-insta_views:80,
-insta_likes:110,
-insta_followers:160,
-yt_views:90,
-yt_likes:130,
-yt_subs:220,
-fb_views:75,
-fb_likes:120,
-fb_followers:170,
-tg_members:290,
-tg_views:70
+insta_views:80, insta_likes:110,
+yt_views:90, yt_likes:130, yt_subs:220,
+fb_views:75, fb_likes:120, fb_followers:170,
+tg_members:290, tg_views:70
 };
 
-/* Service-wise Minimum Quantity */
-const minQty={
-insta_followers:2000,
-yt_subs:2000,
-fb_followers:2000,
-tg_members:1000,
-insta_views:1000,
-insta_likes:1000,
-yt_views:1000,
-yt_likes:1000,
-fb_views:1000,
-fb_likes:1000,
-tg_views:1000
+// Minimum amount per service
+const minAmt={
+insta_followers:299, yt_subs:299, fb_followers:299, tg_members:299,
+insta_views:199, insta_likes:199, yt_views:199, yt_likes:199,
+fb_views:199, fb_likes:199, tg_views:199
 };
 
-/* Service-wise Minimum Total Price */
-const minPrice={
-insta_followers:299,
-yt_subs:299,
-fb_followers:299,
-tg_members:299,
-insta_views:199,
-insta_likes:199,
-yt_views:199,
-yt_likes:199,
-fb_views:199,
-fb_likes:199,
-tg_views:199
-};
+const platformFee=18;
 
-/* Platform Fee */
-const platformFee = 40;
-
-/* QR */
+// QR
 const upi="hh0598332-2@okhdfcbank";
 qr.src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa="+upi;
 
-function calcPrice(){
-  if(!service.value || !qty.value){ price.value="₹0"; return; }
-  let s=service.value, q=Number(qty.value);
-  if(q < minQty[s]){ price.value="Minimum "+minQty[s]+" required"; return; }
-  let amount = Math.ceil((q/1000)*rate[s]) + platformFee;
-  if(amount < minPrice[s]) amount = minPrice[s];
-  price.value="₹"+amount;
+// Amount -> Quantity logic
+function calcFromAmount(){
+  if(!service.value || !amount.value){
+    qty.value=""; base.value="₹0"; grandTotal.value="₹0"; return;
+  }
+  let s=service.value, amt=Number(amount.value);
+  if(amt < minAmt[s]){
+    qty.value="Minimum ₹"+minAmt[s]+" required";
+    base.value="—"; grandTotal.value="—"; return;
+  }
+
+  let ratePerK = rate[s] || 0;
+
+  // Instagram Followers slab pricing
+  if(s==="insta_followers"){
+    if(amt>=299 && amt<1000) ratePerK=320;
+    else if(amt>=1000 && amt<3000) ratePerK=280;
+    else if(amt>=3000 && amt<10000) ratePerK=250;
+    else ratePerK=220;
+  }
+
+  let estimatedQty = Math.floor((amt / ratePerK) * 1000);
+  qty.value = estimatedQty + " (approx)";
+  base.value = "₹" + amt;
+  grandTotal.value = "₹" + (amt + platformFee);
 }
 
 function sendOrder(){
-  if(!paid.checked||!service.value||!qty.value||!url.value||!utr.value){
+  if(!paid.checked||!service.value||!amount.value||!url.value||!utr.value){
     alert("Please fill all details & confirm payment"); return;
   }
   successPopup.style.display="flex";
   let msg=
   "NEW ORDER%0A"+
   "Service: "+service.options[service.selectedIndex].text+"%0A"+
-  "Quantity: "+qty.value+"%0A"+
-  "Price: "+price.value+"%0A"+
+  "Amount: ₹"+amount.value+"%0A"+
+  "Estimated Qty: "+qty.value+"%0A"+
+  "Grand Total: "+grandTotal.value+"%0A"+
   "URL: "+url.value+"%0A"+
   "UTR: "+utr.value;
 
