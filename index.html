@@ -2,139 +2,289 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Premium Social Media Services</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genuine Followers</title>
 
 <style>
-body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:#020617;color:#e5e7eb}
-.hide{display:none}
-.header{
-  background:linear-gradient(135deg,#0f172a,#020617);
-  padding:18px;text-align:center;font-size:22px;font-weight:700;
-  color:#facc15;border-bottom:1px solid #1e293b
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Poppins',Arial,sans-serif;
+background:#0b0b14;
+color:#fff;
+overflow-x:hidden;
 }
-.custom{text-align:center;padding:18px;line-height:1.7;color:#cbd5f5;font-size:15px}
-.container{padding:16px}
+
+/* HEADER */
+header{
+padding:25px 15px;
+text-align:center;
+background:linear-gradient(135deg,#7f00ff,#e100ff);
+animation:slideDown 1s ease;
+}
+header h1{margin:0;font-size:26px}
+header p{margin:6px 0 0;font-size:14px;opacity:.9}
+
+/* LUXURY TEXT */
+.luxury{
+text-align:center;
+padding:12px;
+font-size:13px;
+background:linear-gradient(90deg,#ffd700,#ffb347);
+-webkit-background-clip:text;
+color:transparent;
+animation:glow 2s infinite alternate;
+}
+
+/* LIVE ORDERS */
+.live{
+background:#111122;
+padding:8px;
+font-size:12px;
+overflow:hidden;
+white-space:nowrap;
+}
+.live span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 18s linear infinite;
+}
+@keyframes scroll{
+from{transform:translateX(0)}
+to{transform:translateX(-100%)}
+}
+
+/* SECTION */
+.section{padding:15px}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:14px;
+animation:fadeIn 1.2s ease;
+}
 .card{
-  background:linear-gradient(180deg,#020617,#0f172a);
-  border:1px solid #1e293b;border-radius:16px;
-  padding:18px;margin-bottom:16px;
+background:#161627;
+border-radius:14px;
+padding:18px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
 }
-.title{font-size:16px;font-weight:600;color:#f8fafc}
-.price{margin-top:6px;color:#facc15;font-size:15px}
-.btn{
-  margin-top:12px;width:100%;padding:12px;border:none;border-radius:10px;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  color:#020617;font-size:16px;font-weight:700
+.card:hover{
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,.6);
 }
-.overlay{
-  position:fixed;inset:0;background:rgba(2,6,23,.85);
-  display:flex;align-items:center;justify-content:center;z-index:9999
+.card h3{margin:0;font-size:16px}
+
+/* FORM BOX */
+.box{
+background:#161627;
+border-radius:16px;
+padding:16px;
+margin-top:10px;
+animation:fadeUp 1s ease;
 }
-.modal{
-  background:#020617;border:1px solid #1e293b;
-  width:90%;max-width:360px;padding:22px;border-radius:16px;text-align:center
-}
-.modal h3{color:#facc15}
+.box h4{margin:10px 0 6px;font-size:14px}
+
+/* INPUTS */
 input{
-  width:100%;padding:12px;margin-top:12px;border-radius:10px;
-  border:1px solid #1e293b;background:#020617;color:#e5e7eb
+width:100%;
+padding:11px;
+border:none;
+border-radius:10px;
+outline:none;
+margin-bottom:8px;
+font-size:14px;
 }
+
+/* CHECKBOX */
+.check{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:13px;
+margin:6px 0;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:13px;
+border:none;
+border-radius:12px;
+font-size:16px;
+color:#fff;
+cursor:pointer;
+background:linear-gradient(135deg,#ff512f,#dd2476);
+opacity:.4;
+}
+button.active{
+opacity:1;
+animation:pulse 1.8s infinite;
+}
+
+/* UPI */
+.upi{
+margin-top:10px;
+padding:10px;
+border-radius:10px;
+background:#0d0d1a;
+text-align:center;
+font-size:14px;
+}
+
+/* QR */
 .qr{
-  display:none;background:#020617;border:1px solid #1e293b;
-  padding:22px;border-radius:16px;margin-top:20px;text-align:center
+margin-top:12px;
+text-align:center;
 }
-.qr img{width:220px}
-.upi{margin-top:12px;color:#facc15;word-break:break-all}
-.langbtn{
-  width:100%;padding:12px;margin-top:12px;border:none;border-radius:10px;
-  background:linear-gradient(135deg,#facc15,#eab308);
-  color:#020617;font-weight:700
+.qr img{
+width:160px;
+border-radius:12px;
+background:#fff;
+padding:8px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+font-size:12px;
+opacity:.6;
+padding:12px;
+}
+
+/* ANIMATIONS */
+@keyframes slideDown{
+from{transform:translateY(-40px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{
+from{transform:translateY(30px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+@keyframes glow{
+from{text-shadow:0 0 5px #ffd700}
+to{text-shadow:0 0 15px #ffb347}
+}
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(255,81,47,.6)}
+70%{box-shadow:0 0 0 15px rgba(255,81,47,0)}
+100%{box-shadow:0 0 0 0 rgba(255,81,47,0)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Language -->
-<div class="overlay" id="lang">
-  <div class="modal">
-    <h3>Select Language</h3>
-    <button class="langbtn" onclick="closeLang()">English</button>
-    <button class="langbtn" onclick="closeLang()">हिंदी</button>
-    <button class="langbtn" onclick="closeLang()">বাংলা</button>
-  </div>
+<header>
+<h1>Premium Social Media Services</h1>
+<p>Instagram • YouTube • Facebook • Telegram</p>
+</header>
+
+<div class="luxury">
+⚡ Fast Delivery • Secure Payments • Live Orders • Trusted Service ⚡
 </div>
 
-<div class="header">💎 Genuine Followers</div>
-
-<div class="custom">
-  💎 Genuine Followers Hub<br>
-  🚀 Real & Active Social Media Growth<br>
-  🎯 YouTube • Instagram • Facebook • TikTok • Telegram<br>
-  💰 Best Price • ⚡ Fast Delivery<br>
-  📲 Premium UPI Payment
+<div class="live">
+<span id="liveText"></span>
 </div>
 
-<div class="container">
-
-<!-- YOUTUBE -->
-<div class="card"><div class="title">▶️ YouTube Subscribers</div><div class="price">500 — ₹130</div><button class="btn" onclick="openURL('YouTube Subscribers 500')">Pay Now</button></div>
-<div class="card"><div class="title">▶️ YouTube Subscribers</div><div class="price">1K — ₹250</div><button class="btn" onclick="openURL('YouTube Subscribers 1K')">Pay Now</button></div>
-<div class="card"><div class="title">👍 YouTube Likes</div><div class="price">1K — ₹100</div><button class="btn" onclick="openURL('YouTube Likes')">Pay Now</button></div>
-<div class="card"><div class="title">👁️ YouTube Views</div><div class="price">10K — ₹90</div><button class="btn" onclick="openURL('YouTube Views')">Pay Now</button></div>
-
-<!-- INSTAGRAM -->
-<div class="card"><div class="title">📸 Instagram Followers</div><div class="price">500 — ₹100</div><button class="btn" onclick="openURL('Instagram Followers 500')">Pay Now</button></div>
-<div class="card"><div class="title">📸 Instagram Followers</div><div class="price">1K — ₹180</div><button class="btn" onclick="openURL('Instagram Followers 1K')">Pay Now</button></div>
-<div class="card"><div class="title">❤️ Instagram Likes</div><div class="price">1K — ₹70</div><button class="btn" onclick="openURL('Instagram Likes')">Pay Now</button></div>
-<div class="card"><div class="title">👁️ Instagram Views</div><div class="price">10K — ₹80</div><button class="btn" onclick="openURL('Instagram Views')">Pay Now</button></div>
-
-<!-- FACEBOOK -->
-<div class="card"><div class="title">👤 Facebook Followers</div><div class="price">1K — ₹130</div><button class="btn" onclick="openURL('Facebook Followers')">Pay Now</button></div>
-<div class="card"><div class="title">👍 Facebook Page Likes</div><div class="price">1K — ₹130</div><button class="btn" onclick="openURL('Facebook Likes')">Pay Now</button></div>
-
-<!-- TIKTOK -->
-<div class="card"><div class="title">🎵 TikTok Followers</div><div class="price">1K — ₹100</div><button class="btn" onclick="openURL('TikTok Followers')">Pay Now</button></div>
-<div class="card"><div class="title">❤️ TikTok Likes</div><div class="price">1K — ₹90</div><button class="btn" onclick="openURL('TikTok Likes')">Pay Now</button></div>
-<div class="card"><div class="title">👁️ TikTok Views</div><div class="price">10K — ₹80</div><button class="btn" onclick="openURL('TikTok Views')">Pay Now</button></div>
-
-<!-- TELEGRAM -->
-<div class="card"><div class="title">📢 Telegram Members</div><div class="price">1K — ₹250</div><button class="btn" onclick="openURL('Telegram Members')">Pay Now</button></div>
-<div class="card"><div class="title">👁️ Telegram Post Views</div><div class="price">10K — ₹90</div><button class="btn" onclick="openURL('Telegram Views')">Pay Now</button></div>
-
-<!-- URL BOX -->
-<div class="overlay hide" id="urlBox">
-  <div class="modal">
-    <h3>Enter Social Media URL</h3>
-    <input id="userURL" placeholder="Paste your profile / video URL">
-    <button class="langbtn" onclick="showQR()">Continue</button>
-  </div>
+<div class="section">
+<div class="cards">
+<div class="card" onclick="setService('Instagram Views 10K - ₹99')"><h3>Instagram</h3></div>
+<div class="card" onclick="setService('YouTube Subscribers 5K - ₹89')"><h3>YouTube</h3></div>
+<div class="card" onclick="setService('Facebook Likes - ₹79')"><h3>Facebook</h3></div>
+<div class="card" onclick="setService('Telegram Members 1K - ₹99')"><h3>Telegram</h3></div>
+</div>
 </div>
 
-<!-- QR -->
-<div class="qr" id="qr">
-  <h3 style="color:#facc15">📷 Scan & Pay</h3>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=hh0598332-2@okhdfcbank&pn=GenuineFollowers">
-  <div class="upi">UPI ID: hh0598332-2@okhdfcbank</div>
-  <button class="btn" onclick="submit()">SUBMIT</button>
+<div class="section">
+<div class="box">
+
+<h4>Selected Service</h4>
+<input id="service" readonly>
+
+<h4>Profile / Video URL</h4>
+<input id="url" placeholder="https://">
+
+<h4>UTR Number</h4>
+<input id="utr" placeholder="UTR Number">
+
+<div class="upi">
+<b>UPI ID:</b><br>
+hh0598332-2@okhdfcbank
 </div>
 
+<div class="qr">
+<img id="qrimg">
 </div>
+
+<div class="check">
+<input type="checkbox" id="paid" onchange="checkPaid()">
+<label for="paid">I have completed the payment</label>
+</div>
+
+<button id="submitBtn" onclick="sendOrder()">Submit Order</button>
+
+</div>
+</div>
+
+<footer>
+© Premium Social Media Services
+</footer>
 
 <script>
-let service="";
-function closeLang(){document.getElementById("lang").style.display="none";}
-function openURL(s){service=s;document.getElementById("urlBox").classList.remove("hide");}
-function showQR(){
-  document.getElementById("urlBox").classList.add("hide");
-  document.getElementById("qr").style.display="block";
-  window.scrollTo(0,document.body.scrollHeight);
+/* LIVE ORDERS */
+const orders=[
+"Instagram Views 10K ordered",
+"YouTube 5K Subscribers ordered",
+"Telegram 1K Members ordered",
+"Facebook Likes ordered",
+"Instagram Followers ordered"
+];
+let i=0;
+setInterval(()=>{
+document.getElementById("liveText").innerText="🔥 "+orders[i%orders.length]+" • Just Now";
+i++;
+},3000);
+
+/* QR */
+const upi="hh0598332-2@okhdfcbank";
+document.getElementById("qrimg").src=
+"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa="+upi;
+
+/* SERVICE */
+function setService(name){
+service.value=name;
+window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
 }
-function submit(){
-  const url=document.getElementById("userURL").value;
-  window.location.href="https://wa.me/91XXXXXXXXXX?text="+
-   encodeURIComponent("Service: "+service+"\nURL: "+url+"\nPayment done");
+
+/* PAYMENT CHECK */
+function checkPaid(){
+const btn=document.getElementById("submitBtn");
+if(paid.checked){
+btn.classList.add("active");
+}else{
+btn.classList.remove("active");
+}
+}
+
+/* SEND ORDER */
+function sendOrder(){
+if(!paid.checked){alert("Please complete payment first");return;}
+if(!service.value||!url.value||!utr.value){
+alert("Fill all details");return;
+}
+let msg=
+"NEW ORDER%0A"+
+"Service: "+service.value+"%0A"+
+"URL: "+url.value+"%0A"+
+"UTR: "+utr.value;
+
+window.open("https://t.me/yourtelegramusername?text="+msg,"_blank");
 }
 </script>
 
