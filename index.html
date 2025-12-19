@@ -2,190 +2,234 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Premium Social Media Services</title>
+<title>Premium Social Media</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{
-  background:#0b0f1f;
-  color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  margin:0;
+background:linear-gradient(180deg,#0b0f1a,#111827);
+color:#fff;
+scroll-behavior:smooth;
 }
+
+/* HEADER */
+.header{
+padding:20px;
+text-align:center;
+background:linear-gradient(90deg,#6a11cb,#2575fc);
+border-radius:0 0 20px 20px;
+}
+.header h1{
+font-size:26px;
+font-weight:800;
+letter-spacing:1px;
+}
+.badges{
+margin-top:12px;
+font-size:14px;
+line-height:1.6;
+opacity:.95;
+}
+
+/* CONTAINER */
+.container{
+padding:20px;
+max-width:480px;
+margin:auto;
+}
+
+/* CARD */
 .card{
-  background:#12162b;
-  margin:15px;
-  padding:15px;
-  border-radius:16px;
+background:#0f172a;
+border-radius:18px;
+padding:18px;
+margin-bottom:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
-h2{text-align:center;margin:10px 0}
-input,select,button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:10px;
-  border:none;
-  font-size:15px;
+
+/* TITLES */
+.card h2{
+font-size:20px;
+margin-bottom:12px;
+}
+
+/* SERVICE LIST */
+.service{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#020617;
+padding:14px;
+border-radius:14px;
+margin-bottom:10px;
+}
+.service span{
+font-size:15px;
+}
+.buy{
+background:#22c55e;
+color:#000;
+padding:6px 14px;
+border-radius:20px;
+font-weight:bold;
+font-size:14px;
+}
+
+/* FORM */
+label{font-size:14px;opacity:.8}
+input,select{
+width:100%;
+padding:12px;
+margin-top:6px;
+margin-bottom:14px;
+border-radius:12px;
+border:none;
+font-size:15px;
 }
 button{
-  background:#25d366;
-  color:#000;
-  font-weight:bold;
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+font-size:17px;
+font-weight:bold;
+background:#22c55e;
+color:#000;
 }
-.hidden{display:none}
-.small{font-size:12px;opacity:.7}
-.counter{
-  text-align:center;
-  font-size:16px;
-}
+
+/* PAYMENT */
 .qr{
-  background:#fff;
-  color:#000;
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
+display:none;
+text-align:center;
+margin-top:20px;
 }
-.qr img{width:200px}
-.float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:#000;
-  padding:14px;
-  border-radius:50%;
-  font-weight:bold;
-  text-decoration:none;
+.qr img{
+width:200px;
+border-radius:12px;
+}
+
+/* SUPPORT */
+.support{
+position:fixed;
+bottom:18px;
+right:18px;
+background:#25D366;
+color:#000;
+padding:14px 16px;
+border-radius:50%;
+font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+opacity:.6;
+font-size:13px;
+margin:20px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 LIVE ORDERS -->
-<div class="card counter">
-🔥 Today Orders: <b id="orders">500</b>+
+<div class="header">
+<h1>🔥 PREMIUM SOCIAL MEDIA 🔥</h1>
+<div class="badges">
+✔ Real-looking Engagement<br>
+✔ No Password Required<br>
+✔ Fast Delivery<br>
+✔ 24x7 WhatsApp Support<br>
+✔ Refund if not started yet
+</div>
 </div>
 
-<h2>🔥 SOCIAL MEDIA AGENCY 🔥</h2>
+<div class="container">
 
-<!-- MAIN FORM -->
+<!-- INSTAGRAM -->
 <div class="card">
+<h2>📸 Instagram Services</h2>
 
-<select id="service">
-<option value="">Select Service</option>
-<option value="Instagram Followers">Instagram Followers</option>
-<option value="YouTube Subscribers">YouTube Subscribers</option>
-<option value="Telegram Members">Telegram Members</option>
+<div class="service"><span>500 Followers</span><span class="buy">₹120</span></div>
+<div class="service"><span>1,000 Followers</span><span class="buy">₹250</span></div>
+
+<div class="service"><span>500 Likes</span><span class="buy">₹80</span></div>
+<div class="service"><span>1,000 Likes</span><span class="buy">₹150</span></div>
+
+<div class="service"><span>1,000 Views</span><span class="buy">₹70</span></div>
+
+<div class="service"><span>10 Comments</span><span class="buy">₹120</span></div>
+</div>
+
+<!-- YOUTUBE -->
+<div class="card">
+<h2>▶ YouTube Services</h2>
+
+<div class="service"><span>500 Subscribers</span><span class="buy">₹200</span></div>
+<div class="service"><span>1,000 Subscribers</span><span class="buy">₹350</span></div>
+
+<div class="service"><span>4,000 Watch Hours</span><span class="buy">₹299</span></div>
+</div>
+
+<!-- TELEGRAM -->
+<div class="card">
+<h2>✈ Telegram Services</h2>
+
+<div class="service"><span>500 Members</span><span class="buy">₹150</span></div>
+<div class="service"><span>1,000 Members</span><span class="buy">₹250</span></div>
+</div>
+
+<!-- ORDER FORM -->
+<div class="card">
+<h2>📝 Place Order</h2>
+
+<label>Select Service</label>
+<select>
+<option>Instagram Followers</option>
+<option>Instagram Likes</option>
+<option>Instagram Views</option>
+<option>Instagram Comments</option>
+<option>YouTube Subscribers</option>
+<option>YouTube Watch Time</option>
+<option>Telegram Members</option>
 </select>
 
-<input id="amount" type="number" placeholder="Enter Amount ₹">
+<label>Enter Amount (₹)</label>
+<input type="number" placeholder="Example: 150">
 
-<input id="quantity" placeholder="Estimated Quantity" readonly>
+<label>Profile / Video URL</label>
+<input type="text" placeholder="https://">
 
-<input id="url" placeholder="Profile / Video URL">
+<button onclick="showQR()">Submit Order</button>
 
-<div id="qrBox" class="hidden">
+<div class="qr" id="qrBox">
+<p style="margin-bottom:10px">Scan & Pay</p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=hh0598332-2@okhdfcbank">
+<br><br>
+<label>UTR Number</label>
+<input type="text" placeholder="Enter UTR">
 
-<div class="qr">
-<p><b>Pay via UPI</b></p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=hh0598332-2@okhdfcbank">
-<p>UPI ID: <b>hh0598332-2@okhdfcbank</b></p>
+<label>Alternative UTR (Optional)</label>
+<input type="text" placeholder="Optional">
+
+<button>Confirm Payment</button>
 </div>
-
-<input id="utr" placeholder="Enter UTR Number">
-
-<label class="small">
-<input type="checkbox" id="paid"> I have completed the payment
-</label>
-
-</div>
-
-<button onclick="submitOrder()">Submit Order</button>
-
-<p class="small">
-⚠ Orders are processed after manual payment verification
-</p>
 
 </div>
 
-<!-- WhatsApp Floating -->
-<a class="float" href="#" onclick="sendWhatsApp()">WA</a>
+<div class="footer">
+© 2025 PREMIUM SOCIAL MEDIA<br>
+All Rights Reserved
+</div>
+
+</div>
+
+<a class="support" href="https://wa.me/919296093773">WA</a>
 
 <script>
-// 🔥 LIVE COUNTER
-let c=500;
-setInterval(()=>{
-  c+=Math.floor(Math.random()*2);
-  document.getElementById("orders").innerText=c;
-},4000);
-
-// 💰 SERVICE RATES (per unit)
-const rates={
- "Instagram Followers":0.08,
- "YouTube Subscribers":0.15,
- "Telegram Members":0.20
-};
-
-// AUTO QUANTITY
-document.getElementById("amount").addEventListener("input",calcQty);
-document.getElementById("service").addEventListener("change",calcQty);
-
-function calcQty(){
- let s=document.getElementById("service").value;
- let a=document.getElementById("amount").value;
- if(!rates[s]||!a){
-   document.getElementById("quantity").value="";
-   return;
- }
- let q=Math.floor(a/rates[s]*1000);
- document.getElementById("quantity").value=q+" units";
-}
-
-// SUBMIT
-function submitOrder(){
- let s=document.getElementById("service").value;
- let a=document.getElementById("amount").value;
- let u=document.getElementById("url").value;
- let utr=document.getElementById("utr").value;
- let paid=document.getElementById("paid").checked;
-
- if(!s||!a||!u){
-   alert("Fill all details first");
-   return;
- }
-
- document.getElementById("qrBox").classList.remove("hidden");
-
- if(paid && utr.length>=8){
-   sendWhatsApp();
-   sendTelegram();
-   alert("✅ Order submitted successfully!\nPayment will be verified shortly.");
- }
-}
-
-// WHATSAPP
-function sendWhatsApp(){
- let msg=`🔥 NEW ORDER 🔥
-Service: ${service.value}
-Amount: ₹${amount.value}
-Quantity: ${quantity.value}
-URL: ${url.value}
-UTR: ${utr.value}`;
- window.open("https://wa.me/91XXXXXXXXXX?text="+encodeURIComponent(msg));
-}
-
-// TELEGRAM
-function sendTelegram(){
- let token="YOUR_BOT_TOKEN";
- let chatId="YOUR_CHAT_ID";
- let text=`🔥 NEW ORDER
-Service: ${service.value}
-Amount: ₹${amount.value}
-Quantity: ${quantity.value}
-URL: ${url.value}
-UTR: ${utr.value}`;
- fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`);
+function showQR(){
+document.getElementById("qrBox").style.display="block";
+window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
 }
 </script>
 
