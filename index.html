@@ -115,7 +115,7 @@ tg_members:290, tg_views:70
 
 // Minimum amount per service
 const minAmt={
-insta_followers:299, yt_subs:299, fb_followers:299, tg_members:299,
+insta_followers:199, yt_subs:299, fb_followers:299, tg_members:299,
 insta_views:199, insta_likes:199, yt_views:199, yt_likes:199,
 fb_views:199, fb_likes:199, tg_views:199
 };
@@ -141,8 +141,8 @@ function calcFromAmount(){
 
   // Instagram Followers slab pricing
   if(s==="insta_followers"){
-    if(amt>=299 && amt<1000) ratePerK=320;
-    else if(amt>=1000 && amt<3000) ratePerK=280;
+    if(amt>=199 && amt<1000) ratePerK=320;
+    else if(amt>=1000 && amt<3000) ratePerK=240;
     else if(amt>=3000 && amt<10000) ratePerK=250;
     else ratePerK=220;
   }
