@@ -2,235 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Premium Social Media</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Social Media</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{
-background:linear-gradient(180deg,#0b0f1a,#111827);
-color:#fff;
-scroll-behavior:smooth;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0b1020;
+  color:#fff;
 }
-
-/* HEADER */
-.header{
-padding:20px;
-text-align:center;
-background:linear-gradient(90deg,#6a11cb,#2575fc);
-border-radius:0 0 20px 20px;
-}
-.header h1{
-font-size:26px;
-font-weight:800;
-letter-spacing:1px;
-}
-.badges{
-margin-top:12px;
-font-size:14px;
-line-height:1.6;
-opacity:.95;
-}
-
-/* CONTAINER */
 .container{
-padding:20px;
-max-width:480px;
-margin:auto;
+  max-width:420px;
+  margin:auto;
+  padding:15px;
 }
-
-/* CARD */
+.header{
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0 20px;
+}
 .card{
-background:#0f172a;
-border-radius:18px;
-padding:18px;
-margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
+  background:#11162a;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:15px;
 }
-
-/* TITLES */
-.card h2{
-font-size:20px;
-margin-bottom:12px;
-}
-
-/* SERVICE LIST */
 .service{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#020617;
-padding:14px;
-border-radius:14px;
-margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
 }
-.service span{
-font-size:15px;
+.price{
+  background:#22c55e;
+  padding:6px 12px;
+  border-radius:20px;
+  font-weight:bold;
 }
-.buy{
-background:#22c55e;
-color:#000;
-padding:6px 14px;
-border-radius:20px;
-font-weight:bold;
-font-size:14px;
-}
-
-/* FORM */
-label{font-size:14px;opacity:.8}
-input,select{
-width:100%;
-padding:12px;
-margin-top:6px;
-margin-bottom:14px;
-border-radius:12px;
-border:none;
-font-size:15px;
+input, select{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
 }
 button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-font-size:17px;
-font-weight:bold;
-background:#22c55e;
-color:#000;
+  width:100%;
+  padding:14px;
+  background:#22c55e;
+  border:none;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  color:#000;
+  cursor:pointer;
 }
-
-/* PAYMENT */
+.hidden{display:none;}
 .qr{
-display:none;
-text-align:center;
-margin-top:20px;
+  text-align:center;
+  margin-top:10px;
 }
-.qr img{
-width:200px;
-border-radius:12px;
+.wa{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  background:#25d366;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:50%;
+  font-weight:bold;
 }
-
-/* SUPPORT */
-.support{
-position:fixed;
-bottom:18px;
-right:18px;
-background:#25D366;
-color:#000;
-padding:14px 16px;
-border-radius:50%;
-font-weight:bold;
-}
-
-/* FOOTER */
 .footer{
-text-align:center;
-opacity:.6;
-font-size:13px;
-margin:20px 0;
+  text-align:center;
+  font-size:13px;
+  opacity:.6;
+  margin:20px 0;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>🔥 PREMIUM SOCIAL MEDIA 🔥</h1>
-<div class="badges">
-✔ Real-looking Engagement<br>
-✔ No Password Required<br>
-✔ Fast Delivery<br>
-✔ 24x7 WhatsApp Support<br>
-✔ Refund if not started yet
-</div>
-</div>
-
 <div class="container">
 
-<!-- INSTAGRAM -->
+<div class="header">🔥 PREMIUM SOCIAL MEDIA 🔥</div>
+
+<!-- SERVICES -->
+<div id="services">
+
 <div class="card">
-<h2>📸 Instagram Services</h2>
-
-<div class="service"><span>500 Followers</span><span class="buy">₹120</span></div>
-<div class="service"><span>1,000 Followers</span><span class="buy">₹250</span></div>
-
-<div class="service"><span>500 Likes</span><span class="buy">₹80</span></div>
-<div class="service"><span>1,000 Likes</span><span class="buy">₹150</span></div>
-
-<div class="service"><span>1,000 Views</span><span class="buy">₹70</span></div>
-
-<div class="service"><span>10 Comments</span><span class="buy">₹120</span></div>
+<h3>📸 Instagram Services</h3>
+<div class="service"><span>500 Followers</span><span class="price">₹120</span></div>
+<div class="service"><span>1,000 Followers</span><span class="price">₹250</span></div>
+<div class="service"><span>500 Likes</span><span class="price">₹80</span></div>
+<div class="service"><span>1,000 Likes</span><span class="price">₹150</span></div>
+<div class="service"><span>1,000 Views</span><span class="price">₹70</span></div>
+<div class="service"><span>10 Comments</span><span class="price">₹120</span></div>
 </div>
 
-<!-- YOUTUBE -->
 <div class="card">
-<h2>▶ YouTube Services</h2>
-
-<div class="service"><span>500 Subscribers</span><span class="buy">₹200</span></div>
-<div class="service"><span>1,000 Subscribers</span><span class="buy">₹350</span></div>
-
-<div class="service"><span>4,000 Watch Hours</span><span class="buy">₹299</span></div>
+<h3>▶ YouTube Services</h3>
+<div class="service"><span>500 Subscribers</span><span class="price">₹200</span></div>
+<div class="service"><span>1,000 Subscribers</span><span class="price">₹350</span></div>
 </div>
 
-<!-- TELEGRAM -->
 <div class="card">
-<h2>✈ Telegram Services</h2>
-
-<div class="service"><span>500 Members</span><span class="buy">₹150</span></div>
-<div class="service"><span>1,000 Members</span><span class="buy">₹250</span></div>
+<h3>✈ Telegram Services</h3>
+<div class="service"><span>500 Members</span><span class="price">₹150</span></div>
+<div class="service"><span>1,000 Members</span><span class="price">₹250</span></div>
 </div>
 
-<!-- ORDER FORM -->
-<div class="card">
-<h2>📝 Place Order</h2>
+</div>
 
-<label>Select Service</label>
-<select>
+<!-- ORDER -->
+<div class="card">
+<h3>📝 Place Order</h3>
+
+<select id="serviceSelect">
 <option>Instagram Followers</option>
 <option>Instagram Likes</option>
 <option>Instagram Views</option>
-<option>Instagram Comments</option>
 <option>YouTube Subscribers</option>
-<option>YouTube Watch Time</option>
 <option>Telegram Members</option>
 </select>
 
-<label>Enter Amount (₹)</label>
-<input type="number" placeholder="Example: 150">
+<input type="number" id="amount" placeholder="Enter Amount ₹">
 
-<label>Profile / Video URL</label>
-<input type="text" placeholder="https://">
+<input type="text" id="quantity" placeholder="Estimated Quantity" readonly>
 
-<button onclick="showQR()">Submit Order</button>
+<input type="url" id="url" placeholder="Profile / Video URL">
 
-<div class="qr" id="qrBox">
-<p style="margin-bottom:10px">Scan & Pay</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=hh0598332-2@okhdfcbank">
-<br><br>
-<label>UTR Number</label>
-<input type="text" placeholder="Enter UTR">
-
-<label>Alternative UTR (Optional)</label>
-<input type="text" placeholder="Optional">
-
-<button>Confirm Payment</button>
+<div class="qr hidden" id="qrBox">
+<p>UPI ID: <b>hh0598332-2@okhdfcbank</b></p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=hh0598332-2@okhdfcbank" width="200">
+<p><input type="checkbox"> I have completed the payment</p>
 </div>
+
+<button>Submit Order</button>
+<p style="font-size:12px;opacity:.6">Orders are processed after manual verification</p>
+</div>
+
+<div class="footer">© 2025 Premium Social Media</div>
 
 </div>
 
-<div class="footer">
-© 2025 PREMIUM SOCIAL MEDIA<br>
-All Rights Reserved
-</div>
-
-</div>
-
-<a class="support" href="https://wa.me/919296093773">WA</a>
+<a class="wa" href="https://wa.me/919296093773">WA</a>
 
 <script>
-function showQR(){
-document.getElementById("qrBox").style.display="block";
-window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
-}
+const amount=document.getElementById("amount");
+const quantity=document.getElementById("quantity");
+const services=document.getElementById("services");
+const qrBox=document.getElementById("qrBox");
+
+amount.addEventListener("input",()=>{
+  const a=parseInt(amount.value);
+  services.style.display="none";
+
+  if(a==120) quantity.value="500 Followers";
+  else if(a==250) quantity.value="1,000 Followers";
+  else if(a==80) quantity.value="500 Likes";
+  else if(a==150) quantity.value="1,000 Likes / 10 Comments";
+  else if(a==70) quantity.value="1,000 Views";
+  else if(a==200) quantity.value="500 Subscribers";
+  else if(a==350) quantity.value="1,000 Subscribers";
+  else quantity.value="Custom Order";
+
+  if(a>0) qrBox.classList.remove("hidden");
+});
 </script>
 
 </body>
