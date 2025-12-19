@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PREMIUM SOCIAL MEDIA</title>
+<title>Premium Social Media</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:Arial, sans-serif;
   background:#0b1220;
   color:#fff;
 }
@@ -18,13 +18,13 @@ body{
   padding:15px;
 }
 .card{
-  background:#121b2f;
+  background:#121a2f;
   border-radius:15px;
   padding:15px;
   margin-bottom:15px;
 }
-h1,h2{text-align:center;margin:10px 0;}
-input,select,button{
+h1{text-align:center;}
+select,input,button{
   width:100%;
   padding:12px;
   margin-top:10px;
@@ -32,177 +32,214 @@ input,select,button{
   border:none;
   font-size:15px;
 }
-input,select{background:#fff;color:#000;}
+input{background:#fff;}
 button{
   background:#2ecc71;
   font-weight:bold;
   cursor:pointer;
 }
-.qr{display:none;text-align:center;}
-.qr img{width:220px;margin-top:10px;}
-.success{
-  display:none;
-  background:#064e3b;
-  color:#d1fae5;
-  padding:15px;
+button:disabled{background:#555;}
+.price{
+  float:right;
+  background:#2ecc71;
+  color:#000;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:13px;
+}
+footer{
+  text-align:center;
+  font-size:13px;
+  opacity:.6;
+}
+
+/* Fake counters */
+.top-stats{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.stat{
+  flex:1;
+  background:#0f1a33;
+  padding:10px;
   border-radius:12px;
   text-align:center;
+  font-size:14px;
 }
-.pay-icons{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:10px;
-}
-.pay-icons img{
-  height:38px;
-  background:#fff;
-  padding:6px;
-  border-radius:10px;
-}
-.footer{
+
+/* Payment animation */
+#processing{
+  display:none;
   text-align:center;
-  font-size:12px;
-  opacity:.7;
 }
-.url-ok{
-  color:#2ecc71;
-  font-size:14px;
-  display:none;
+.loader{
+  border:5px solid #333;
+  border-top:5px solid #2ecc71;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  animation:spin 1s linear infinite;
+  margin:15px auto;
 }
-.url-bad{
-  color:#ff6b6b;
-  font-size:14px;
+@keyframes spin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+
+/* Fake live popup */
+#livePopup{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#0f1a33;
+  padding:12px 15px;
+  border-radius:12px;
+  font-size:13px;
   display:none;
+  box-shadow:0 0 15px #000;
+  animation:fade 4s;
+}
+@keyframes fade{
+  0%{opacity:0;transform:translateY(20px)}
+  10%{opacity:1;transform:translateY(0)}
+  90%{opacity:1}
+  100%{opacity:0}
 }
 </style>
 </head>
 
 <body>
-<div class="container">
 
+<div class="container">
 <h1>🔥 PREMIUM SOCIAL MEDIA 🔥</h1>
+
+<!-- Fake Stats -->
+<div class="top-stats">
+  <div class="stat">🔥 Live Orders<br><b id="liveOrders">500+</b></div>
+  <div class="stat">👀 Users Online<br><b id="visitors">87</b></div>
+</div>
 
 <div class="card">
 ✔ Real-looking Engagement<br>
 ✔ No Password Required<br>
 ✔ Fast Delivery<br>
-✔ 24×7 WhatsApp Support<br>
-✔ Refund if not started
+✔ 24x7 WhatsApp Support<br>
+✔ Refund if not started yet
 </div>
 
 <div class="card">
-<h2>📝 Place Order</h2>
-
-<select id="service">
-<option value="">Select Service</option>
-<option value="Instagram Followers|0.30">Instagram Followers</option>
-<option value="Instagram Likes|0.15">Instagram Likes</option>
-<option value="Instagram Views|0.07">Instagram Views</option>
-<option value="Facebook Followers|0.30">Facebook Followers</option>
-<option value="YouTube Subscribers|0.40">YouTube Subscribers</option>
-<option value="YouTube Views|0.12">YouTube Views</option>
-<option value="Twitter Followers|0.30">Twitter Followers</option>
-</select>
-
-<input type="number" id="amount" placeholder="Enter Amount ₹">
-
-<input type="text" id="quantity" placeholder="Estimated Quantity" readonly>
-
-<input type="text" id="url" placeholder="Profile / Video URL">
-<div class="url-ok" id="urlOk">✔ Valid URL</div>
-<div class="url-bad" id="urlBad">✖ Invalid URL</div>
-
-<button onclick="showPayment()">Proceed to Pay</button>
-
-<div class="qr" id="qrBox">
-<p><b>Scan & Pay via UPI</b></p>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=hh0598332-2@okhdfcbank">
-
-<div class="pay-icons">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/PhonePe_Logo.png" alt="PhonePe">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Google_Pay_Logo.svg" alt="GPay">
+Instagram Followers <span class="price">₹300 / 1000</span><br><br>
+Instagram Likes <span class="price">₹150 / 1000</span><br><br>
+Instagram Views <span class="price">₹70 / 1000</span><br><br>
+Facebook Followers <span class="price">₹300 / 1000</span><br><br>
+YouTube Subscribers <span class="price">₹200 / 500</span><br><br>
+YouTube Views <span class="price">₹120 / 1000</span><br><br>
+Telegram Members <span class="price">₹250 / 1000</span>
 </div>
 
-<input type="text" id="utr" placeholder="Enter UTR Number">
+<div class="card">
+<h3>📝 Place Order</h3>
 
+<select id="service" onchange="calc()">
+<option value="">Select Service</option>
+<option value="ig_follow">Instagram Followers</option>
+<option value="ig_like">Instagram Likes</option>
+<option value="ig_view">Instagram Views</option>
+<option value="fb_follow">Facebook Followers</option>
+<option value="yt_sub">YouTube Subscribers</option>
+<option value="yt_view">YouTube Views</option>
+<option value="tg_mem">Telegram Members</option>
+</select>
+
+<input type="number" id="amount" placeholder="Enter Amount ₹" oninput="calc()">
+<input type="text" id="qty" placeholder="Estimated Quantity" readonly>
+<input type="text" id="url" placeholder="Profile / Video URL" oninput="checkURL()">
+
+<button id="payBtn" disabled onclick="showPay()">Proceed to Pay</button>
+</div>
+
+<div class="card" id="payBox" style="display:none;text-align:center">
+<h3>Scan & Pay via UPI</h3>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=hh0598332-2@okhdfcbank">
+<input type="text" id="utr" placeholder="Enter UTR Number">
 <button onclick="submitOrder()">Submit Order</button>
 </div>
 
-<div class="success" id="successBox">
-✅ Order Submitted Successfully<br><br>
-⏳ Payment verification in progress<br>
-📲 Our team will contact you shortly
+<div class="card" id="processing">
+<div class="loader"></div>
+Processing payment, please wait...
 </div>
 
+<div class="card" id="success" style="display:none;text-align:center">
+<h3>✅ Payment Successful</h3>
+Order placed successfully<br>
+📞 Our team will contact you shortly
 </div>
 
-<div class="footer">
-© 2025 PREMIUM SOCIAL MEDIA
+<footer>© 2025 PREMIUM SOCIAL MEDIA</footer>
 </div>
 
-</div>
+<div id="livePopup"></div>
 
 <script>
-const amount=document.getElementById("amount");
-const service=document.getElementById("service");
-const quantity=document.getElementById("quantity");
-const url=document.getElementById("url");
-const urlOk=document.getElementById("urlOk");
-const urlBad=document.getElementById("urlBad");
-
-amount.addEventListener("input",calc);
-service.addEventListener("change",calc);
-
+/* Quantity calculation */
 function calc(){
-  if(!service.value || !amount.value){
-    quantity.value="";
-    return;
-  }
-  let rate = service.value.split("|")[1];
-  quantity.value = Math.floor(amount.value / rate) + " units";
+ let s=service.value,a=amount.value,q="";
+ if(s=="ig_follow")q=a/300*1000;
+ if(s=="ig_like")q=a/150*1000;
+ if(s=="ig_view")q=a/70*1000;
+ if(s=="fb_follow")q=a/300*1000;
+ if(s=="yt_sub")q=a/200*500;
+ if(s=="yt_view")q=a/120*1000;
+ if(s=="tg_mem")q=a/250*1000;
+ qty.value=q?Math.floor(q)+" units":"";
 }
-
-url.addEventListener("input",()=>{
-  const v = url.value.toLowerCase();
-  if(
-    v.includes("instagram.com") ||
-    v.includes("facebook.com") ||
-    v.includes("youtube.com") ||
-    v.includes("youtu.be") ||
-    v.includes("twitter.com") ||
-    v.includes("x.com")
-  ){
-    urlOk.style.display="block";
-    urlBad.style.display="none";
-  }else{
-    urlOk.style.display="none";
-    urlBad.style.display="block";
-  }
-});
-
-function showPayment(){
-  if(!service.value || !amount.value || !url.value){
-    alert("Please fill all fields");
-    return;
-  }
-  if(urlOk.style.display!="block"){
-    alert("Please enter a valid URL");
-    return;
-  }
-  document.getElementById("qrBox").style.display="block";
+function checkURL(){
+ payBtn.disabled=url.value.length<10;
 }
-
+function showPay(){
+ payBox.style.display="block";
+}
 function submitOrder(){
-  const utr=document.getElementById("utr").value;
-  if(utr==""){
-    alert("Please enter UTR number");
-    return;
-  }
-  document.getElementById("qrBox").style.display="none";
-  document.getElementById("successBox").style.display="block";
+ if(utr.value==""){alert("Enter UTR");return;}
+ payBox.style.display="none";
+ processing.style.display="block";
+ setTimeout(()=>{
+   processing.style.display="none";
+   success.style.display="block";
+ },3000);
 }
+
+/* Fake Live Orders counter */
+let orders=500;
+setInterval(()=>{
+ orders+=Math.floor(Math.random()*5)+1;
+ document.getElementById("liveOrders").innerText=orders+"+";
+},3000);
+
+/* Fake Visitors */
+let visitors=87;
+setInterval(()=>{
+ visitors+=Math.floor(Math.random()*5)-2;
+ if(visitors<60)visitors=60;
+ if(visitors>150)visitors=150;
+ document.getElementById("visitors").innerText=visitors;
+},4000);
+
+/* Fake live popup */
+const pops=[
+"🔥 Someone ordered 1000 Instagram Followers",
+"🔥 New order: 500 YouTube Subscribers",
+"🔥 Payment received for Telegram Members",
+"🔥 Order placed: 1000 Instagram Likes"
+];
+setInterval(()=>{
+ let p=document.getElementById("livePopup");
+ p.innerText=pops[Math.floor(Math.random()*pops.length)];
+ p.style.display="block";
+ setTimeout(()=>p.style.display="none",4000);
+},8000);
 </script>
 
 </body>
